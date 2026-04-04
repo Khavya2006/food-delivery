@@ -2,25 +2,25 @@ import React  from "react";
 import image1 from "../assets/image1.avif";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
-function Card2(){
+function Card2({name,id,price,image,qty}){
     return(
-        <div className="w-full h-[120px] p-2 shadow-lg">
+        <div className="w-full h-[120px] p-2 shadow-lg flex justify-between">
             <div className="w[60%] h-full  flex gap-6">
                 <div className="w-[30%] h-full overflow-hidden">
-                    <img src={image1} alt="" className="object-cover rounded"/>
+                    <img src={image} alt="" className="object-cover rounded"/>
                 </div>
                 <div className="w-[40%] h-full flex flex-col gap-5">
-                    <div className="text-lg text-gray-600 font-semibold" >Pancake</div>
+                    <div className="text-lg text-gray-600 font-semibold" >{name}</div>
                     <div className="w-[110px] h-[50px] bg-slate-400 flex overflow-hidden rounded shawdow-lg font-semibold border-2 border-green-400 text-xl cursor-pointer">
                         <button className="w-[30%] h-full bg-white flex justify-center items-center text-green-400 hover:bg-gray-400 cursor-pointer">-</button>
-                        <span className="w-[40%] h-full bg-slate-200 flex justify-center items-center text-green-400">1</span>
+                        <span className="w-[40%] h-full bg-slate-200 flex justify-center items-center text-green-400">{qty}</span>
                         <button className="w-[30%] h-full bg-white text-green-400 hover:bg-gray-400 cursor-pointer">+</button>
                     </div>
                 </div>
             </div>
-            <div>
-                <span>Rs 499/-</span>
-                <RiDeleteBin5Line />
+            <div className="flex flex-col justify-start items-end gap-6 ">
+                <span className="text-xl text-green-400 font-semibold">Rs{price}/-</span>
+                <RiDeleteBin5Line className="w-[30px] h-[30px] text-red-400 "/>
 
 
             </div>

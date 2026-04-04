@@ -5,6 +5,7 @@ import { IoBagHandleOutline } from "react-icons/io5";
 import { dataContext } from "../context/UserContext";
 import { food_item } from "../food";
 
+import { useSelector } from "react-redux";
 
 
 function Nav(){
@@ -13,7 +14,8 @@ function Nav(){
         let newList=food_item.filter((items)=>items.food_name.includes(input)||items.food_name.toLowerCase().includes(input))
         setCate(newList)
     } ,[input])
-
+let items=useSelector(state=>state.cart)
+console.log(items)
     return(
         <div className='width-full h-[100px] flex justify-between items-center px-5 md:px-8'>
             <div className='w-[60px] h-[60px] bg-white flex justify-center items-center rounded-md shadow-xl '>
@@ -25,7 +27,7 @@ function Nav(){
              <input type="text" placeholder='Search items...' className="w-[100%] outline-none text-[16px] md:text-[20px]" onChange={(e)=>setInput(e.target.value)} value={input}/>
             </form>
             <div className="w-[60px] h-[60px] bg-white flex justify-center items-center rounded-md shadow-xl relative cursor-pointer" onClick={()=>{setShowCart(true)}}>
-                <span className="absolute top-0 right-2 text-green-500 font-bold text-18px">0</span>
+                <span className="absolute top-0 right-2 text-green-500 font-bold text-18px">{items.length}</span>
                 <IoBagHandleOutline className="w-[30px] h-[30px] text-green-500"/>
 
 
