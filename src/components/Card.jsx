@@ -5,8 +5,8 @@ import React from "react";
 
 function Card({name,image,id,price,type}){
     return(
-        <div className="w-[300px] h-[400px] bg-white p-4 flex flex-col gap-3 shadow-lg">
-            <div className="w-[100%] h-[60%] overflow-hidden rounded-lg">
+        <div className="w-[300px] h-[400px] bg-white p-4 flex flex-col gap-3 shadow-lg  hover:outer-container-green-100">
+            <div className="w-[100%] h-[60%] overflow-hidden rounded-lg ">
                 <img src={image} alt="" className="object-cover" />
 
             </div>

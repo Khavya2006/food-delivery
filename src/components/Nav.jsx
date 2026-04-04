@@ -8,9 +8,9 @@ import { food_item } from "../food";
 
 
 function Nav(){
-    let {input,setInput,cate,setCate}=useContext(dataContext)
+    let {input,setInput,cate,setCate,showCart,setShowCart}=useContext(dataContext)
     useEffect(()=>{
-        let newList=food_item.filter((items)=>items.food_name.includes(input))
+        let newList=food_item.filter((items)=>items.food_name.includes(input)||items.food_name.toLowerCase().includes(input))
         setCate(newList)
     } ,[input])
 
@@ -20,11 +20,11 @@ function Nav(){
               <MdFastfood className="w-[30px] h-[30px] text-green-500 "/>
   
             </div>
-            <form className="w-[45%] h-[60px] bg-white flex items-center px-5 gap-5  rounded-md shadow-md md:w-[70%]" onSubmit={(e)=>MdSettingsInputAntenna.preventDefault()}>
+            <form className="w-[45%] h-[60px] bg-white flex items-center px-5 gap-5  rounded-md shadow-md md:w-[70%]" onSubmit={(e)=>e.preventDefault()}>
              <IoSearch className="text-green-500 w-[20px] h-[20px]" />
              <input type="text" placeholder='Search items...' className="w-[100%] outline-none text-[16px] md:text-[20px]" onChange={(e)=>setInput(e.target.value)} value={input}/>
             </form>
-            <div className="w-[60px] h-[60px] bg-white flex justify-center items-center rounded-md shadow-xl relative">
+            <div className="w-[60px] h-[60px] bg-white flex justify-center items-center rounded-md shadow-xl relative" onClick={()=>{setShowCart(true)}}>
                 <span className="absolute top-0 right-2 text-green-500 font-bold text-18px">0</span>
                 <IoBagHandleOutline className="w-[30px] h-[30px] text-green-500"/>
 
