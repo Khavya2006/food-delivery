@@ -7,6 +7,7 @@ import { dataContext } from "../context/UserContext";
 import { RxCross2 } from "react-icons/rx";
 import { useSelector } from "react-redux";
 import Card2 from "../components/Card2";
+import { toast } from "react-toastify";
 
 
 function Home(){
@@ -81,7 +82,7 @@ let total=Math.floor(subtotal+deliveryFee+taxes);
                 <span className="text-2xl text-gray-600 font-semibold ">Total</span>
                 <span className="text-green-400 font-semibold text-2xl">Rs:{total}/-</span>
             </div>
-            <button className="w-[80%] p-3 rounded-lg bg-green-300 text-gray-700 hover:bg-green-400 transition-all">Place Order</button>
+            <button className="w-[80%] p-3 rounded-lg bg-green-300 text-gray-700 hover:bg-green-400 transition-all"onClick={()=>{toast.success("Order placed successfully!")}} >Place Order</button>
         
             </>:<div className="text-center text-green-500 pt-20px font-semibold">Empty Cart</div>}
        </div>

@@ -4,6 +4,7 @@ import React from "react";
  import { GiChickenOven } from "react-icons/gi";
 import { useDispatch } from "react-redux";
 import { AddItem } from "../redux/cartSlice";
+import { toast } from "react-toastify";
 
 function Card({name,image,id,price,type}){
     let dispatch=useDispatch()
@@ -24,7 +25,8 @@ function Card({name,image,id,price,type}){
 
 
             </div>
-            <button className="w-full p-3 rounded-lg bg-green-300 text-gray-700 hover:bg-green-400 transition-all" onClick={()=>dispatch(AddItem({id:id, name:name, price:price, image:image, qty:1}))}>Add To Dish</button>
+            <button className="w-full p-3 rounded-lg bg-green-300 text-gray-700 hover:bg-green-400 transition-all" onClick={()=>{dispatch(AddItem({id:id, name:name, price:price, image:image, qty:1}));
+            toast.success("item added")}}>Add To Dish</button>
 
 
             </div>
